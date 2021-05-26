@@ -7,6 +7,8 @@
 
 ## Introduction
 
+
+
 In this lab, we'll be working with a TV show domain model. We will have a show,
 network, and character model. They will be associated in the following way:
 
@@ -42,7 +44,22 @@ or a model configured.
   relationship with these database table columns.
 - Write a migration that adds the column `catchphrase` to your character model.
 
+x
+
 ### Associations
+show 
+  has_many characters
+  has_many actors :through characters
+  
+actor
+  has_many characters
+  has_many shows through :characters
+
+character
+  belong_to shows
+
+network
+   
 
 - Associate the `Actor` model with the `Character` and `Show` model. An actor
   should have many characters and many shows through characters.
